@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Articles</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Article Name</th>
+            <th>Author Name</th>
+            <th>Create Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        {% for nhl in nhl %}
+        <tbody>
+        <tr>
+            <th scope="row">{{ nhl.id }}</th>
+            <td>{{ nhl.articleName }}</td>
+            <td>{{ nhl.name }}</td>
+            <td>
+                {{ nhl.createDate|date('F j, Y, g:i a') }}
+            </td>
+            <td>
+                <a href="/nhl/details/{{ nhl.id }}" class="btn btn-success">View </a>
+                <a href="/nhl/edit/{{ nhl.id }}" class="btn btn-primary">Edit </a>
+                <a href="/nhl/delete/{{ nhl.id }}" class="btn btn-danger">Delete </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

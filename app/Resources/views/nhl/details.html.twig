@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a class="btn btn-default" href="/nhl/articles">Back To Articles</a>
+    <a href="/nhl/details/{{ nhl.id+1 }}" class="btn btn-success">Next</a>
+    <a href="/nhl/details/{{ nhl.id-1 }}" class="btn btn-primary">Previous</a>
+
+    <hr>
+    <h2 class="page-header">{{ nhl.ArticleName }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Category: {{ nhl.category }}</li>
+        <li class="list-group-item">Author name: {{ nhl.name }}</li>
+        <li class="list-group-item">Author email: {{ nhl.AuthorEmail }}</li>
+        <li class="list-group-item">Created at:<strong>{{ nhl.DueDate|date('F j, Y, g:i a') }}</strong> </li>
+    </ul>
+    <p>
+        {{ nhl.description }}
+    </p>
+
+    {% if nhl.id > 1 %}
+        <ul class="pagination pagination-sm">
+        {# `«` arrow  #}
+        <li {{ nhl.id == 1 ? 'class="disabled"' }}>
+            <a href="/nhl/details/{{ nhl.id-1 }}" class="btn btn-primary">«</a>
+        </li>
+
+            {# `»` arrow #}
+            <li {{ nhl.id == 7 ? 'class="disabled"' }}>
+                <a href="/nhl/details/{{ nhl.id+1 }}" class="btn btn-success">»</a>
+            </li>
+        </ul>
+    {% endif %}
+
+
+
+{% endblock %}

@@ -7,6 +7,7 @@
  */
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Comments;
 use AppBundle\Entity\Nhl;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +29,12 @@ class NhlController extends Controller
      */
     public function listAction(Request $request)
     {
-        return $this->render('nhl/index.html.twig');
+        $nhl = $this->getDoctrine()
+            ->getRepository('AppBundle:Nhl')
+            ->findAll();
+        return $this->render('nhl/index.html.twig',array(
+            'nhl'=>$nhl
+        ));
     }
 
     /**
@@ -42,6 +48,7 @@ class NhlController extends Controller
         return $this->render('nhl/articles.html.twig',array(
             'nhl'=>$nhl
         ));
+
     }
 
 
@@ -188,6 +195,9 @@ class NhlController extends Controller
         return $this->render('nhl/details.html.twig',array(
             'nhl'=>$nhl
         ));
+
+
+
     }
 
 

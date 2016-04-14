@@ -13,4 +13,5 @@ return array(
     '03d83d8496ed2ba16ae326b097a7a1a9' => $vendorDir . '/symfony/polyfill-php56/bootstrap.php',
     'f5b3ada715b2e75e9a702d70d0eeca62' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     'c66d02e2ecb1205f357cbc98003bf55f' => $vendorDir . '/symfony/polyfill-intl-icu/bootstrap.php',
+    'f0cfed1a23b444183024a3c7df93aafa' => $vendorDir . '/kriswallsmith/assetic/src/functions.php',
 );
